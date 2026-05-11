@@ -4,11 +4,9 @@ if (token) {
   console.log("Utilisateur connecté");
 
   const loginLink = document.querySelector("#loginLink");
-
   loginLink.innerText = "logout";
 
   const filtres = document.querySelector(".filtres");
-
   filtres.style.display = "none";
 
   const bandeauEdition = document.createElement("div");
@@ -24,6 +22,7 @@ if (token) {
   bandeauEdition.appendChild(texteEdition);
 
   document.body.prepend(bandeauEdition);
+
   const modifier = document.querySelector(".modifier");
   modifier.style.display = "flex";
 } else {
@@ -66,12 +65,10 @@ async function recuperercategories() {
   const filtres = document.querySelector(".filtres");
 
   const boutonTous = document.createElement("button");
-
   boutonTous.innerText = "Tous";
 
   boutonTous.addEventListener("click", function () {
     const gallery = document.querySelector(".gallery");
-
     gallery.innerHTML = "";
 
     for (let i = 0; i < travaux.length; i++) {
@@ -97,12 +94,10 @@ async function recuperercategories() {
     const button = document.createElement("button");
 
     button.innerText = categories[i].name;
-
     button.dataset.id = categories[i].id;
 
     button.addEventListener("click", function () {
       const gallery = document.querySelector(".gallery");
-
       gallery.innerHTML = "";
 
       const travauxFiltres = travaux.filter(function (travail) {
@@ -131,3 +126,41 @@ async function recuperercategories() {
 }
 
 recuperercategories();
+
+function afficherTravauxModal() {
+  const modalWorks = document.querySelector(".modal-works");
+
+  modalWorks.innerHTML = "";
+
+  for (let i = 0; i < travaux.length; i++) {
+    const figure = document.createElement("figure");
+
+    const image = document.createElement("img");
+    image.src = travaux[i].imageUrl;
+    image.alt = travaux[i].title;
+
+    figure.appendChild(image);
+
+    modalWorks.appendChild(figure);
+  }
+}
+
+const modifier = document.querySelector(".modifier");
+const modalOverlay = document.querySelector(".modal-overlay");
+
+modifier.addEventListener("click", function () {
+  afficherTravauxModal();
+  modalOverlay.style.display = "flex";
+});
+
+const modalClose = document.querySelector(".modal-close");
+
+modalClose.addEventListener("click", function () {
+  modalOverlay.style.display = "none";
+});
+
+modalOverlay.addEventListener("click", function (event) {
+  if (event.target === modalOverlay) {
+    modalOverlay.style.display = "none";
+  }
+});
