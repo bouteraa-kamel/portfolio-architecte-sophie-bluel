@@ -65,20 +65,41 @@ async function recupererCategories() {
 
   const filtres = document.querySelector(".filtres");
 
+  filtres.innerHTML = "";
+
+  // bouton Tous
   const boutonTous = document.createElement("button");
   boutonTous.innerText = "Tous";
 
+  // actif dès le chargement
+  boutonTous.classList.add("actif");
+
   boutonTous.addEventListener("click", function () {
+    document.querySelectorAll(".filtres button").forEach((button) => {
+      button.classList.remove("actif");
+    });
+
+    boutonTous.classList.add("actif");
+
     afficherTravaux(travaux);
   });
 
   filtres.appendChild(boutonTous);
 
+  // boutons catégories
+
   for (let i = 0; i < categories.length; i++) {
     const button = document.createElement("button");
+
     button.innerText = categories[i].name;
 
     button.addEventListener("click", function () {
+      document.querySelectorAll(".filtres button").forEach((button) => {
+        button.classList.remove("actif");
+      });
+
+      button.classList.add("actif");
+
       const travauxFiltres = travaux.filter(function (travail) {
         return travail.categoryId === categories[i].id;
       });

@@ -261,31 +261,50 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
+
+/* ================= FILTRES ================= */
+
 .filtres {
   display: flex;
+
   justify-content: center;
+
   gap: 10px;
+
   margin-bottom: 50px;
 }
 
 .filtres button {
-  font-family: "Syne";
-  font-weight: 700;
-  font-size: 16px;
-
-  color: #1d6154;
-  background-color: white;
-
-  border: 1px solid #1d6154;
-  border-radius: 60px;
-
   padding: 10px 20px;
 
+  border: 1px solid #1d6154;
+
+  border-radius: 60px;
+
+  background: white;
+
+  color: #1d6154;
+
+  font-family: "Syne";
+
+  font-size: 16px;
+
+  font-weight: 700;
+
   cursor: pointer;
+
+  transition: 0.3s;
 }
 
 .filtres button:hover {
-  background-color: #1d6154;
+  background: #1d6154;
+
+  color: white;
+}
+
+.filtres button.actif {
+  background: #1d6154;
+
   color: white;
 }
 #login {
@@ -359,6 +378,8 @@ footer nav ul {
 .modifier p {
   margin: 0;
 }
+/* ================= MODALE ================= */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -370,23 +391,36 @@ footer nav ul {
   background-color: rgba(0, 0, 0, 0.3);
 
   display: none;
-
   justify-content: center;
   align-items: center;
+
+  z-index: 1000;
 }
 
 .modal-content {
   background-color: white;
 
   width: 630px;
-
   border-radius: 10px;
 
   padding: 30px;
-
   position: relative;
 
   max-height: 90vh;
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+}
+
+/* Scroll Chrome */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+  border-radius: 10px;
 }
 
 .modal-close {
@@ -396,11 +430,9 @@ footer nav ul {
   right: 20px;
 
   border: none;
-
   background: none;
 
-  font-size: 20px;
-
+  font-size: 22px;
   cursor: pointer;
 }
 
@@ -408,10 +440,12 @@ footer nav ul {
 .modal-form h3 {
   text-align: center;
 
-  margin-bottom: 30px;
-
   font-size: 26px;
+
+  margin-bottom: 30px;
 }
+
+/* Galerie photos */
 
 .modal-works {
   display: grid;
@@ -420,9 +454,7 @@ footer nav ul {
 
   gap: 10px;
 
-  align-items: start;
-
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   padding-bottom: 40px;
 
@@ -433,13 +465,8 @@ footer nav ul {
   position: relative;
 }
 
-.modal-works figure {
-  width: 100%;
-}
-
 .modal-works img {
   width: 100%;
-
   height: 110px;
 
   object-fit: cover;
@@ -447,6 +474,7 @@ footer nav ul {
 
 .icone-delete {
   position: absolute;
+
   top: 6px;
   right: 6px;
 
@@ -455,7 +483,7 @@ footer nav ul {
 
   background-color: black;
   color: white;
-
+  font-size: 8px;
   border-radius: 2px;
 
   display: flex;
@@ -465,53 +493,49 @@ footer nav ul {
   cursor: pointer;
 }
 
-.icone-delete::before {
+.icone-delete i {
   font-size: 10px;
-  margin-left: 5px;
 }
+
+/* bouton ajouter */
 
 .btn-ajouter-photo {
   display: block;
 
-  margin: 30px auto 0 auto;
+  margin: 30px auto 0;
+
+  width: 237px;
+  height: 36px;
+
+  border: none;
+  border-radius: 60px;
 
   background-color: #1d6154;
 
   color: white;
 
-  border: none;
-
-  border-radius: 60px;
-
-  width: 237px;
-
-  height: 36px;
+  font-family: "Syne";
+  font-weight: 700;
 
   cursor: pointer;
 }
 
-.modal-form {
-  display: none;
-}
-.modal-form {
-  display: none;
-}
+/* ================= FORMULAIRE ================= */
 
-.modal-form h3 {
-  text-align: center;
-  font-size: 26px;
-  margin-bottom: 30px;
+.modal-form {
+  display: none;
 }
 
 .modal-back {
   position: absolute;
-  top: 30px;
-  left: 30px;
+
+  top: 25px;
+  left: 25px;
 
   border: none;
   background: none;
 
-  font-size: 22px;
+  font-size: 25px;
 
   cursor: pointer;
 }
@@ -519,10 +543,13 @@ footer nav ul {
 #form-ajout-photo {
   display: flex;
   flex-direction: column;
+
   width: 420px;
 
   margin: auto;
 }
+
+/* zone upload */
 
 .upload-zone {
   background-color: #e8f1f6;
@@ -533,6 +560,7 @@ footer nav ul {
 
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
 
@@ -557,19 +585,18 @@ footer nav ul {
 
   cursor: pointer;
 
-  font-weight: 600;
-
   margin-bottom: 10px;
 }
 
 .upload-zone p {
   font-size: 10px;
-  color: #444444;
 }
 
 .upload-zone input {
   display: none;
 }
+
+/* champs */
 
 #form-ajout-photo label {
   margin-bottom: 10px;
@@ -581,42 +608,43 @@ footer nav ul {
 
   border: none;
 
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  padding-left: 15px;
 
   margin-bottom: 20px;
 
-  padding-left: 15px;
-
-  font-size: 14px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-#form-ajout-photo button[type="submit"] {
-  margin-top: 30px;
-  align-self: center;
+/* bouton valider */
 
-  height: 36px;
+#form-ajout-photo button[type="submit"] {
   width: 237px;
+  height: 36px;
+
+  margin: 30px auto 0;
 
   border: none;
-
   border-radius: 60px;
-
-  background-color: #a7a7a7;
 
   color: white;
 
   font-family: "Syne";
   font-weight: 700;
 
-  cursor: pointer;
-}
-#form-ajout-photo button[type="submit"] {
   background: #a7a7a7;
+
   cursor: not-allowed;
+
   transition: 0.3s;
 }
 
 #form-ajout-photo button[type="submit"]:enabled {
   background: #1d6154;
+
   cursor: pointer;
+}
+.icone-delete.fa-solid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
