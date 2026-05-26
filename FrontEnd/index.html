@@ -100,7 +100,25 @@
 
         <div class="modal-form">
           <button class="modal-back">←</button>
+
           <h3>Ajout photo</h3>
+
+          <form id="form-ajout-photo">
+            <div class="upload-zone">
+              <i class="fa-regular fa-image"></i>
+              <label for="image">+ Ajouter photo</label>
+              <input type="file" id="image" name="image" accept="image/*" />
+              <p>jpg, png : 4mo max</p>
+            </div>
+
+            <label for="titre">Titre</label>
+            <input type="text" id="titre" name="titre" />
+
+            <label for="categorie">Catégorie</label>
+            <select id="categorie" name="categorie"></select>
+
+            <button type="submit">Valider</button>
+          </form>
         </div>
       </div>
     </div>

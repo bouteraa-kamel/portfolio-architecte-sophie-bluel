@@ -415,15 +415,22 @@ footer nav ul {
 
 .modal-works {
   display: grid;
+
   grid-template-columns: repeat(5, 1fr);
+
   gap: 10px;
 
   align-items: start;
 
   margin-bottom: 20px;
+
   padding-bottom: 40px;
 
   border-bottom: 1px solid #b3b3b3;
+}
+
+.modal-work-item {
+  position: relative;
 }
 
 .modal-works figure {
@@ -433,9 +440,34 @@ footer nav ul {
 .modal-works img {
   width: 100%;
 
-  height: 80px;
+  height: 110px;
 
   object-fit: cover;
+}
+
+.icone-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  width: 20px;
+  height: 20px;
+
+  background-color: black;
+  color: white;
+
+  border-radius: 2px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.icone-delete::before {
+  font-size: 10px;
+  margin-left: 5px;
 }
 
 .btn-ajouter-photo {
@@ -460,4 +492,131 @@ footer nav ul {
 
 .modal-form {
   display: none;
+}
+.modal-form {
+  display: none;
+}
+
+.modal-form h3 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.modal-back {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  border: none;
+  background: none;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+#form-ajout-photo {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+
+  margin: auto;
+}
+
+.upload-zone {
+  background-color: #e8f1f6;
+
+  height: 170px;
+
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.upload-zone i {
+  font-size: 60px;
+  color: #b9c5cc;
+
+  margin-bottom: 10px;
+}
+
+.upload-zone label {
+  background-color: #cbd6dc;
+
+  color: #306685;
+
+  padding: 10px 20px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+.upload-zone p {
+  font-size: 10px;
+  color: #444444;
+}
+
+.upload-zone input {
+  display: none;
+}
+
+#form-ajout-photo label {
+  margin-bottom: 10px;
+}
+
+#form-ajout-photo input,
+#form-ajout-photo select {
+  height: 50px;
+
+  border: none;
+
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+  margin-bottom: 20px;
+
+  padding-left: 15px;
+
+  font-size: 14px;
+}
+
+#form-ajout-photo button[type="submit"] {
+  margin-top: 30px;
+  align-self: center;
+
+  height: 36px;
+  width: 237px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background-color: #a7a7a7;
+
+  color: white;
+
+  font-family: "Syne";
+  font-weight: 700;
+
+  cursor: pointer;
+}
+#form-ajout-photo button[type="submit"] {
+  background: #a7a7a7;
+  cursor: not-allowed;
+  transition: 0.3s;
+}
+
+#form-ajout-photo button[type="submit"]:enabled {
+  background: #1d6154;
+  cursor: pointer;
 }
